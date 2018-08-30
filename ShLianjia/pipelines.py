@@ -8,4 +8,14 @@
 
 class ShlianjiaPipeline(object):
     def process_item(self, item, spider):
+        try:
+            place = str (item['place'])
+            size =  str (item['size'])
+            price = str(item['price'])
+            fb = open("/User/charles/Desktop/zufang.txt", "a+")
+            fb.write(place + size + price + '\n')
+            fb.close()
+        except:
+            pass
+
         return item
